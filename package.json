@@ -1,0 +1,57 @@
+{
+  "name": "notemap",
+  "version": "1.0.0",
+  "description": "Note map front end with reactjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "start": "npm run build",
+    "build": "rm -rf dist && webpack -d && webpack-dev-server --content-base dist/ --inline --hot",
+    "build:prod": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "notemap"
+  },
+  "keywords": [
+    "notemap"
+  ],
+  "author": "tuanlam",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel": "^6.23.0",
+    "history": "^4.7.2",
+    "i": "^0.3.6",
+    "npm": "^5.8.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-paginate": "^5.2.2",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^5.1.1",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.1.0",
+    "node-sass": "^4.8.3",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15",
+    "webpack-dev-server": "^3.1.1"
+  }
+}

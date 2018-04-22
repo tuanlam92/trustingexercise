@@ -1,0 +1,281 @@
+/* Base Application Styles */
+$primaryColor: #e8280b;
+$lightPrimaryColor: #e8280ba1;
+$gray: #ebebeb;
+$mediumGray: #a1a1a1;
+$white: #fff;
+$black: #000;
+
+@font-face {
+    font-family: Quicksand;
+    src: url('./../fonts/Quicksand-Regular.ttf');
+}
+@font-face {
+    font-family: Quicksand-Medium;
+    src: url('./../fonts/Quicksand-Medium.ttf');
+}
+@font-face {
+    font-family: Quicksand-Bold;
+    src: url('./../fonts/Quicksand-Bold.ttf');
+}
+
+body{
+    font-family: Quicksand;
+    margin: 0;
+    padding: 0;
+}
+
+// Header
+.header{
+    box-shadow: 0 0 16px #ccc;          
+    .header-content{        
+        padding: 0px 160px 0px 160px;
+        display: flex;
+        align-items: center;
+        height: 56px;
+        justify-content: space-between;
+        .logo-box{
+            display: flex;
+            align-items: center;
+            .logo{
+                height: 40px;
+            }
+            span{
+                font-size: 24px;
+                font-family: Quicksand-Medium;
+                margin-left: 8px;
+            }
+        }        
+        .login{
+            display: flex;            
+        }
+    }   
+}
+// End  Header
+
+// Body
+.body{
+    margin: 24px auto 24px auto;
+    max-width: 1024px;    
+}
+// End Body
+
+// Top Three News
+.top-three{
+    display: flex;    
+    justify-content: space-between;    
+    .left-news{
+        flex-basis: calc(100% - (34% + 16px));
+        .news{
+            .snippet{
+                font-size: 32px;
+                line-height: 48px;
+                font-family: Quicksand-Medium;
+            }
+        }
+    }    
+    .right-news{
+        flex-basis: 34%;
+        .news{
+            &:nth-child(2){
+                margin-top: 16px;
+            }
+        }
+    }
+}
+// End Top Three News
+
+// Hight Light News
+.high-light{
+    .title{
+        font-size: 16px;
+        margin-top: 32px;
+        border-top: solid 4px #ebebeb;
+        padding: 16px 0;
+    }    
+    .articles{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;    
+        .news{
+            margin-top: 16px;
+            flex-basis: calc(50% - 8px);
+            .snippet{
+                font-family: Quicksand-Medium;
+            }
+            &:nth-child(1), &:nth-child(2){
+                margin-top: 0;
+            }
+        }
+        
+    }
+}
+// End Hight Light News
+
+// News
+.news{
+    cursor: pointer;
+    .media-box{
+        overflow: hidden;        
+        .media{          
+            object-fit: cover;
+            width: 100%;   
+            height: 100%;
+        }        
+    }
+    .sub-info{
+        display: flex;
+        .material-type{
+            flex-basis: 50%;
+            font-size: 10px;
+            color: $mediumGray;
+            font-family: Quicksand-Bold;
+            text-transform: uppercase;
+            line-height: 21px;
+                     
+        }
+        .pub-date{
+            display: flex;
+            align-items: center;
+            flex-basis: 50%;
+            justify-content: flex-end;
+            font-size: 10px;
+            color: $mediumGray;
+        }
+    }
+    .snippet{
+        font-size: 16px;
+        line-height: 24px;        
+    }
+    .source{
+        font-size: 14px;
+        margin-top: 8px;
+        .source-name{
+            color: $primaryColor;
+        }
+    }
+}
+// End News
+
+// Pagination
+.pagination{
+    display: flex;
+    justify-content: flex-end;
+    ul{
+        display: flex;
+        list-style: none;
+        li{            
+            min-width: 32px;
+            height: 32px;            
+            color: $white;
+            margin-left: 8px;
+            border-radius: 2px;
+            padding: 0 8px; 
+            background-color: $lightPrimaryColor;
+            margin-top: 8px;
+            cursor: pointer;
+            a{
+                width: 100%;
+                height: 100%;                               
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            &.selected{
+                background-color: $primaryColor;
+            }
+            &.next,&.previous{
+                width: 56px;
+                &.disabled{
+                    background-color: $gray;
+                    color: black;
+                }
+            }
+        }
+    }
+}
+// End Pagination
+
+// Modal
+.modal-wrap{    
+    &.close{
+        top: 120vh;        
+        .cover{
+            top: 120vh;
+            opacity: 0;
+            transition: 0s ease-in;
+        }
+        .modal{
+            top: 120vh;
+            opacity: 0;
+            transition: 0.3s ease-in;
+        }
+    }  
+    width: 100%;
+    height: 100%;
+    position: fixed;    
+    top: 120vh;     
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .cover{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0vh;  
+        opacity: 0.6;
+        background-color: $black;
+        transition: 0.1s ease-in;
+    }
+    .modal{
+        position: fixed;
+        width: 80%;
+        top: 32px;  
+        height: calc(100vh - 128px); 
+        overflow-x: scroll;       
+        background-color: $white;
+        border-radius: 2px;
+        opacity: 1;
+        padding: 16px;
+        transition: 0.2s ease-in;
+        .modal-title{
+            h3{
+                padding: 8px 0px;
+            }
+            .close{
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                cursor: pointer;
+                background-color: transparent;
+                font-family: Quicksand-Bold;
+                font-size: 18px;                
+            }
+        }
+    }
+}
+// End Modal
+
+// Detail
+.modal{
+    .modal-content{
+        .news{
+            .media-box{
+                height: calc(100vh - 280px);
+                width: 100%;                
+            }
+        }
+    }
+}
+// End Detail
+
+// Footer
+.footer{
+    padding: 0px 160px 0px 160px;
+    display: flex;
+    align-items: center;
+    height: 56px;
+    box-shadow: 0 0 16px #ccc;
+}
+// End Footer
